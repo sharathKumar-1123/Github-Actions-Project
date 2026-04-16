@@ -1,0 +1,16 @@
+
+name: CI/CD
+
+on:
+  workflow_dispatch:
+jobs:
+  compile:
+    runs-on: Agent-1
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23
+          
