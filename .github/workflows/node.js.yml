@@ -21,9 +21,23 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
-
       - name: gitleaks setup
         uses: gitleaks/gitleaks-action@v2       
-           
+  Trivy_fs_scan:
+    runs-on: Agent-1
+    needs: gitleaks-scan
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: Run Trivy Vulnerability scanner
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+         scan-type: 'fs'
+         scan-ref: '.'
+         format: 'table'
+         exit-code: '1'
+         ignore-unfixed: true
+         vuln-type: 'os,library'
+         severity: 'CRITICAL,HIGH'        
   
       
