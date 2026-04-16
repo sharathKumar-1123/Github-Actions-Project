@@ -13,4 +13,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 23
-          
+      - name: success code
+        run: echo "pipeline is completed successfully"
+  gitleaks-scan:
+    runs-on: Agent-1
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: gitleaks setup
+        uses: gitleaks/gitleaks-action@v2       
+           
+  
+      
