@@ -30,7 +30,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       - name: Run Trivy Vulnerability scanner
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@master
         with:
          scan-type: 'fs'
          scan-ref: '.'
