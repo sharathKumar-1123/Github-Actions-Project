@@ -17,6 +17,7 @@ jobs:
         run: echo "pipeline is completed successfully"
   gitleaks-scan:
     runs-on: Agent-1
+    needs: compile
     steps:
       - name: checkout
         uses: actions/checkout@v4
